@@ -1,0 +1,25 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #fff;
+
+  min-width: 320px;
+}
+
+h1, h2, h3, h4, h5, h6, p, input {
+  font-weight: inherit;
+  font-family: inherit;
+}
+
+a {
+  color: #222;
+  text-decoration: none;
+  transition: color .2s linear;
+}
+
+a:hover {
+  color: #fff;
+}

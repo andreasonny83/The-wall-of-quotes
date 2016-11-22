@@ -1,0 +1,12 @@
+.container {
+  margin: 0;
+  padding: 0 25px;
+}
+
+.center {
+  text-align: center;
+}
+
+.flex-auto {
+  flex: 1 1 auto;
+}

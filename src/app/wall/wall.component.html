@@ -1,0 +1,32 @@
+<div class="center">
+  <h3>Add a quote</h3>
+
+  <form (ngSubmit)="addQuote()">
+    <label for="quote">Quote
+      <textarea [(ngModel)]="model.quote" name="quote" id="quote" rows="10" cols="30">
+      </textarea>
+    </label>
+
+    <label for="quote">Author
+      <input [(ngModel)]="model.author" type="text" id="author" name="author">
+    </label>
+
+    <label for="creator">Your name
+      <input [(ngModel)]="model.creator" type="text" id="creator" name="creator">
+    </label>
+
+    <button type="submit" name="button">Add</button>
+  </form>
+</div>
+
+<div class="center">
+  <h2>{{ oldies }}</h2>
+</div>
+
+<div class="quote-container">
+  <div class="quote-box" *ngFor="let item of quotes | async">
+    <span class="quote">{{item.quote}}</span>
+    <span class="author">{{item.author}}</span>
+    <span class="creator">Posted by: {{item.creator}}</span>
+  </div>
+</div>

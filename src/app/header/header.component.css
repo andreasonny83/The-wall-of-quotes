@@ -1,0 +1,31 @@
+@import '../../../public/css/variables.css';
+
+/*
+ * header__first
+ */
+
+.header__first {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+
+  height: 60px;
+}
+
+.header__first .header__title {
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 0;
+  font-size: 28px;
+  line-height: 28px;
+  color: #eee;
+  align-self: center;
+}
+
+.header__first .header__env {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(47,79,79,0.9);
+  padding: 3px;
+}
