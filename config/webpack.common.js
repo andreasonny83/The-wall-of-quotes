@@ -7,7 +7,7 @@ module.exports = {
   entry: {
     'polyfills': './src/polyfills.ts',
     'vendor': './src/vendor.ts',
-    'app': './src/main.ts'
+    'app': './src/main.ts',
   },
 
   resolve: {
@@ -19,24 +19,25 @@ module.exports = {
       {
         test: /\.ts$/,
         loaders: ['awesome-typescript', 'angular2-template']
-      },
-      {
+      }, {
         test: /\.html$/,
         loader: 'html'
-      },
-      {
+      }, {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-        loader: 'file?name=assets/[name].[hash].[ext]'
-      },
-      {
+        include: helpers.root('images/touch'),
+        loader: 'file-loader?name=images/touch/[name].[ext]'
+      }, {
         test: /\.css$/,
         include: helpers.root('public'),
         loader: ExtractTextPlugin.extract('css!postcss')
-      },
-      {
+      }, {
         test: /\.css$/,
         include: helpers.root('src'),
         loader: 'raw!postcss'
+      }, {
+        test: /\.json/,
+        include: helpers.root('src'),
+        loader: 'file?name=[name].[ext]'
       }
     ]
   },
