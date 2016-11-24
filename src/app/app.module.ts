@@ -2,8 +2,10 @@ import { NgModule }          from '@angular/core';
 import { BrowserModule }     from '@angular/platform-browser';
 import { RouterModule }      from '@angular/router';
 import { FormsModule }       from '@angular/forms';
+import { HttpModule }        from '@angular/http';
 
 import { AngularFireModule } from 'angularfire2';
+import { ReCaptchaModule }   from 'angular2-recaptcha';
 
 import { AppRoutingModule }  from './app-routing.module';
 
@@ -27,7 +29,9 @@ export const firebaseConfig = {
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    HttpModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    ReCaptchaModule
   ],
   declarations: [
     AppComponent,
