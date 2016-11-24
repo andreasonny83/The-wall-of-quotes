@@ -21,11 +21,11 @@ module.exports = {
         loaders: ['awesome-typescript', 'angular2-template']
       }, {
         test: /\.html$/,
-        loader: 'html-loader'
+        loader: 'html'
       }, {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
         include: helpers.root('images/touch'),
-        loader: 'file-loader?name=images/touch/[name].[ext]'
+        loader: 'file?name=images/touch/[name].[ext]'
       }, {
         test: /\.css$/,
         include: helpers.root('public'),
