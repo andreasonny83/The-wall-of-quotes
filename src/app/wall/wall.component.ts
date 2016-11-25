@@ -54,16 +54,19 @@ export class WallComponent {
   }
 
   private addQuote(): any {
+    var self = this;
     if (this.model.quote &&
         this.model.author &&
         this.model.creator) {
 
-      this.resetForm();
-
       return this.http
-                 .post('https://the-wall-of-quotes-api.herokuapp.com/add', this.model)
+                //  .post('https://the-wall-of-quotes-api.herokuapp.com/add', this.model)
+                 .post('http://localhost:3012/add', this.model) // for dev
                  .toPromise()
-                 .then((response: any) => { console.log(response)})
+                 .then((response: any) => {
+                   console.log(response);
+                   self.resetForm();
+                 })
                  .catch();
     }
   }

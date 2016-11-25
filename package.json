@@ -8,7 +8,9 @@
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
     "preserve:dist": "npm run build",
     "serve:dist": "./node_modules/http-server/bin/http-server dist/",
-    "postinstall": "typings install"
+    "postinstall": "typings install",
+    "predeploy": "npm run build",
+    "deploy": "firebase deploy"
   },
   "license": "MIT",
   "repository": {
