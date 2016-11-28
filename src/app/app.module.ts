@@ -20,8 +20,7 @@ export const firebaseConfig = {
   apiKey: ConstantService.API_KEY,
   authDomain: ConstantService.AUTH_DOMAIN,
   databaseURL: ConstantService.DB,
-  storageBucket: ConstantService.BUCKET,
-  messagingSenderId: ConstantService.SENDER_ID
+  storageBucket: ConstantService.BUCKET
 }
 
 @NgModule({

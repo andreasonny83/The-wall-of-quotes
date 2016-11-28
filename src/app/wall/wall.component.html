@@ -15,8 +15,7 @@
       <input [(ngModel)]="model.creator" type="text" id="creator" name="creator">
     </label>
 
-    <!-- <div class="g-recaptcha" data-sitekey="6LdL0AwUAAAAAMocAirWnZylU1XEOmkTV3Zx77ZZ"></div> -->
-    <re-captcha (captchaResponse)="handleCorrectCaptcha($event)" [site_key]="siteKey"></re-captcha>
+    <re-captcha #reCaptchaModule (captchaResponse)="handleCorrectCaptcha($event)" [site_key]="reCaptchaKey"></re-captcha>
 
     <button type="submit" name="button">Add</button>
   </form>

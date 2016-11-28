@@ -8,30 +8,46 @@ import { Component,
 import { Http, Response } from '@angular/http';
 import { Observable }     from 'rxjs';
 
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { FirebaseListObservable,
+         AngularFire }     from 'angularfire2';
+
+import { ConstantService } from  '../services/config';
+import { ReCaptchaModule } from 'angular2-recaptcha';
 
 @Component({
   selector: 'wall',
   styleUrls: ['./wall.component.css'],
-  templateUrl: './wall.component.html',
+  templateUrl: './wall.component.html'
 })
 export class WallComponent {
+  @ViewChild('reCaptchaModule') reCaptcha: any;
+
   public highlight: string;
   public oldies: string;
   public model: any;
-  public siteKey: string = '6LdL0AwUAAAAAMocAirWnZylU1XEOmkTV3Zx77ZZ';
+  public reCaptchaKey: string = '6LdL0AwUAAAAAMocAirWnZylU1XEOmkTV3Zx77ZZ';
   public quotes: FirebaseListObservable<any[]>;
 
   constructor(private af: AngularFire,
               private renderer: Renderer,
-              private http: Http) {
-    this.resetForm();
-
-    this.quotes = af.database.list('/quotes');
-  }
+              private http: Http) { }
 
   private handleCorrectCaptcha(token: string): void {
     this.model.captcha = token;
+  }
+
+  /**
+   * [ngOnInit description]
+   *
+   * @return {[type]} [description]
+   */
+  ngOnInit(): void {
+    this.highlight = 'Today\'s quotes';
+    this.oldies = 'Our quotes';
+
+    this.quotes = this.af.database.list('/quotes');
+
+    this.resetForm();
   }
 
   private resetForm(): void {
@@ -41,30 +57,24 @@ export class WallComponent {
       creator: '',
       captcha: ''
     };
-  }
 
-  /**
-   * [ngOnInit description]
-   *
-   * @return {[type]} [description]
-   */
-  private ngOnInit(): void {
-    this.highlight = 'Today\'s quotes';
-    this.oldies = 'Our quotes';
+    // console.log(this.reCaptcha);
+    // this.renderer.invokeElementMethod(this.reCaptcha, 'reset');
+    // this.reCaptchaModule.getResponse();
   }
 
   private addQuote(): any {
     var self = this;
     if (this.model.quote &&
         this.model.author &&
+        this.model.captcha &&
         this.model.creator) {
 
       return this.http
-                //  .post('https://the-wall-of-quotes-api.herokuapp.com/add', this.model)
-                 .post('http://localhost:3012/add', this.model) // for dev
+                 .post(`${ConstantService.API_URL}/add`, this.model)
                  .toPromise()
-                 .then((response: any) => {
-                   console.log(response);
+                 .then((response: Response) => {
+                  //  console.log(response);
                    self.resetForm();
                  })
                  .catch();
