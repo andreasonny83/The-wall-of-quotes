@@ -1,0 +1,71 @@
+@import '../../../public/css/variables.css';
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.quote-box {
+  display: flex;
+  flex-direction: column;
+
+  margin: 15px;
+
+  font-size: 16px;
+  color: #222;
+
+  border-radius: 3px;
+  background-color: #EEE;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quote-box:hover {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),
+              0 6px 10px 0 rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+.quote-box > .quote,
+.quote-box > .author {
+  flex: 1 1 auto;
+  padding: 10px 15px;
+}
+
+.quote-box > .quote {
+  max-width: 500px;
+  font-size: 18px;
+}
+
+.quote-box > .author {
+  align-self: flex-end;
+  font-style: italic;
+}
+
+.author:before {
+  display: inline;
+  margin-right: 5px;
+  content: "-";
+}
+
+.creator {
+  padding: 3px;
+  font-size: 11px;
+  line-height: 14px;
+  background-color: rgba(0,0,0,.1);
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  :host {
+    width: auto;
+    max-width: 275px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  :host {
+    max-width: 400px;
+  }
+}

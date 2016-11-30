@@ -14,6 +14,8 @@ import { ConstantService }   from  './services/config';
 import { AppComponent }      from './app.component';
 import { SnHeaderComponent } from './header/header.component';
 import { WallComponent }     from './wall/wall.component';
+import { QuoteComponent }    from './quote/quote.component';
+
 
 // Must export the config
 export const firebaseConfig = {
@@ -35,7 +37,8 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     SnHeaderComponent,
-    WallComponent
+    WallComponent,
+    QuoteComponent
   ],
   providers: [
     ConstantService
