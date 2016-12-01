@@ -1,0 +1,55 @@
+<div class="floating-form" [ngClass]="formClass">
+  <form (ngSubmit)="addQuote()"
+        [ngClass]="formClass">
+    <div class="row">
+      <label for="quote">Quote</label>
+      <textarea [(ngModel)]="model.quote" name="quote" id="quote" rows="10" required></textarea>
+    </div>
+
+    <div class="row">
+      <label for="quote">Author</label>
+      <input [(ngModel)]="model.author" type="text" id="author" name="author" required>
+    </div>
+
+    <div class="row">
+      <label for="creator">Your name</label>
+      <input [(ngModel)]="model.creator" type="text" id="creator" name="creator" required>
+    </div>
+
+    <div class="row">
+      <re-captcha #reCaptchaModule (captchaResponse)="handleCorrectCaptcha($event)" [site_key]="reCaptchaKey"></re-captcha>
+    </div>
+
+    <div class="row">
+      <button type="submit" name="button">Submit</button>
+    </div>
+  </form>
+
+  <div class="button-container">
+    <button type="button"
+            name="addQuote"
+            class="add-quote"
+            (click)="toggleForm()">
+      <i class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+             id="open" width="32px" height="32px"
+             viewBox="0 0 512 512" xml:space="preserve">
+          <path fill="#FFF" d="M85.965,312.875l113.156,113.188l271.531-271.547L357.496,41.375L85.965,312.875z M380.121,109.266
+          L153.871,335.5l-22.625-22.625l226.25-226.234L380.121,109.266z M470.652,18.75l22.625,22.625c24.969,24.984,24.969,65.516,0,90.516
+          L380.121,18.75C405.121-6.25,445.652-6.25,470.652,18.75z M167.496,439.688L-0.004,512l72.313-167.5L167.496,439.688z"/>
+        </svg>
+      </i>
+
+      <i class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+             id="close" width="32px" height="32px"
+             viewBox="0 0 320 320" xml:space="preserve">
+            <g fill="#FFF">
+              <path stroke-width="0.25pt"  d="m100,60l-40,40l170,170l40,-40l-170,-170z"/>
+              <path stroke-width="0.25pt" d="m60,230l170,-170l40,40l-170,170l-40,-40z"/>
+            </g>
+        </svg>
+      </i>
+    </button>
+  </div>
+</div>

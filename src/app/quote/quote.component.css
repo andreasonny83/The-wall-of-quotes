@@ -54,18 +54,3 @@
   line-height: 14px;
   background-color: rgba(0,0,0,.1);
 }
-
-@media only screen and (min-width: 600px) {
-  /* For tablets: */
-  :host {
-    width: auto;
-    max-width: 275px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  /* For desktop: */
-  :host {
-    max-width: 400px;
-  }
-}

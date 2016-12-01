@@ -1,21 +1,22 @@
-import { NgModule }          from '@angular/core';
-import { BrowserModule }     from '@angular/platform-browser';
-import { RouterModule }      from '@angular/router';
-import { FormsModule }       from '@angular/forms';
-import { HttpModule }        from '@angular/http';
+import { NgModule }              from '@angular/core';
+import { BrowserModule }         from '@angular/platform-browser';
+import { RouterModule }          from '@angular/router';
+import { FormsModule }           from '@angular/forms';
+import { HttpModule }            from '@angular/http';
 
-import { AngularFireModule } from 'angularfire2';
-import { ReCaptchaModule }   from 'angular2-recaptcha';
+import { AngularFireModule }     from 'angularfire2';
+import { ReCaptchaModule }       from 'angular2-recaptcha';
+import { MasonryModule }         from 'angular2-masonry';
 
-import { AppRoutingModule }  from './app-routing.module';
+import { AppRoutingModule }      from './app-routing.module';
 
-import { ConstantService }   from  './services/config';
+import { ConstantService }       from  './services/config';
 
-import { AppComponent }      from './app.component';
-import { SnHeaderComponent } from './header/header.component';
-import { WallComponent }     from './wall/wall.component';
-import { QuoteComponent }    from './quote/quote.component';
-
+import { AppComponent }          from './app.component';
+import { SnHeaderComponent }     from './header/header.component';
+import { WallComponent }         from './wall/wall.component';
+import { QuoteComponent }        from './quote/quote.component';
+import { FloatingFormComponent } from './floating-form/floating-form.component';
 
 // Must export the config
 export const firebaseConfig = {
@@ -32,13 +33,15 @@ export const firebaseConfig = {
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    ReCaptchaModule
+    ReCaptchaModule,
+    MasonryModule
   ],
   declarations: [
     AppComponent,
     SnHeaderComponent,
     WallComponent,
-    QuoteComponent
+    QuoteComponent,
+    FloatingFormComponent
   ],
   providers: [
     ConstantService

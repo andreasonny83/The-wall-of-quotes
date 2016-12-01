@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 export interface Quote {
-  copy: string,
+  quote: string,
   author: string,
   creator: string
 }
@@ -11,20 +11,8 @@ export interface Quote {
  styleUrls: ['./quote.component.css'],
  templateUrl: './quote.component.html'
 })
-export class QuoteComponent implements OnInit {
-  @Input() copy: string = '';
-  @Input() author: string = '';
-  @Input() creator: string = '';
-
-  public quote: Quote;
+export class QuoteComponent {
+  @Input() quote: Quote;
 
   constructor() { }
-
-  ngOnInit(): void {
-    this.quote = {
-      copy: this.copy,
-      author: this.author,
-      creator: this.creator,
-    };
-  }
 }
