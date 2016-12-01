@@ -45,8 +45,13 @@ export class FloatingFormComponent {
     this.captcha.reset();
   }
 
-  private toggleForm(): void {
-    this.resetForm();
+  /**
+   * [toggleForm description]
+   *
+   * @param {boolean = true} reset Reset the form only when the form opens
+   */
+  private toggleForm(reset: boolean = true): void {
+    reset && this.resetForm();
     this.formClass = this.formClass ? '' : 'show';
   }
 
@@ -62,7 +67,7 @@ export class FloatingFormComponent {
         this.model.captcha &&
         this.model.creator) {
 
-      this.toggleForm();
+      this.toggleForm(false);
 
       return this.http
                  .post(`${ConstantService.API_URL}/add`, this.model)
