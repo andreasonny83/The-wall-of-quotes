@@ -14,7 +14,7 @@ import '../../images/touch/homescreen192.png';
   <sn-header class="header"></sn-header>
 
   <div class="content flex-auto container">
-    <router-outlet></router-outlet>
+    <wall></wall>
   </div>
   `
 })

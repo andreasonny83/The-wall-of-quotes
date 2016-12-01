@@ -5,6 +5,11 @@
   padding-top: 15px;
 }
 
+.wall {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
 .brick {
   width: 100%;
 }
@@ -20,5 +25,12 @@
   /* For desktop: */
   .brick {
     width: 33.33%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  /* For big desktops: */
+  .brick {
+    width: 25%;
   }
 }

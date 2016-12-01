@@ -1,19 +1,26 @@
-<div class="floating-form" [ngClass]="formClass">
+<div class="floating-form" [ngClass]="formClass" (click)="closeForm($event)">
   <form (ngSubmit)="addQuote()"
         [ngClass]="formClass">
     <div class="row">
       <label for="quote">Quote</label>
-      <textarea [(ngModel)]="model.quote" name="quote" id="quote" rows="10" required></textarea>
+      <textarea [(ngModel)]="model.quote" name="quote"
+                id="quote" rows="10"
+                [disabled]="wait" required></textarea>
     </div>
 
     <div class="row">
       <label for="quote">Author</label>
-      <input [(ngModel)]="model.author" type="text" id="author" name="author" required>
+      <input [(ngModel)]="model.author"
+             type="text" id="author"
+             name="author"
+             [disabled]="wait" required>
     </div>
 
     <div class="row">
       <label for="creator">Your name</label>
-      <input [(ngModel)]="model.creator" type="text" id="creator" name="creator" required>
+      <input [(ngModel)]="model.creator" type="text"
+             id="creator" name="creator"
+             [disabled]="wait" required>
     </div>
 
     <div class="row">
@@ -21,7 +28,7 @@
     </div>
 
     <div class="row">
-      <button type="submit" name="button">Submit</button>
+      <button type="submit" name="button" [disabled]="wait">Submit</button>
     </div>
   </form>
 
@@ -52,4 +59,6 @@
       </i>
     </button>
   </div>
+
+  <simple-notifications></simple-notifications>
 </div>

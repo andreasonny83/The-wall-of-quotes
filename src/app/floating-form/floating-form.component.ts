@@ -8,6 +8,8 @@ import { ReCaptchaComponent } from 'angular2-recaptcha/lib/captcha.component';
 
 import { ConstantService }    from  '../services/config';
 
+import { NotificationsService, SimpleNotificationsComponent } from 'angular2-notifications';
+
 export interface Model {
   quote: string,
   author: string,
@@ -25,10 +27,12 @@ export class FloatingFormComponent {
     public captcha: ReCaptchaComponent;
 
   public model: Model;
+  public wait: boolean = false;
   public formClass: string = '';
   public reCaptchaKey: string = '6LdL0AwUAAAAAMocAirWnZylU1XEOmkTV3Zx77ZZ';
 
-  constructor(private http: Http) { }
+  constructor(private http: Http,
+              private _service: NotificationsService) { }
 
   ngOnInit(): void {
     this.resetForm();
@@ -46,13 +50,24 @@ export class FloatingFormComponent {
   }
 
   /**
+   * Close the floating form when
+   * clicking outside
+   */
+  private closeForm(evt: any): void {
+    if (evt.target.className === 'floating-form show') {
+      this.toggleForm();
+    }
+  }
+
+  /**
    * [toggleForm description]
    *
    * @param {boolean = true} reset Reset the form only when the form opens
    */
   private toggleForm(reset: boolean = true): void {
-    reset && this.resetForm();
-    this.formClass = this.formClass ? '' : 'show';
+      this.wait = false;
+      reset && this.resetForm();
+      this.formClass = this.formClass ? '' : 'show';
   }
 
   private handleCorrectCaptcha(token: string): void {
@@ -67,17 +82,26 @@ export class FloatingFormComponent {
         this.model.captcha &&
         this.model.creator) {
 
-      this.toggleForm(false);
+      this.wait = true;
 
       return this.http
                  .post(`${ConstantService.API_URL}/add`, this.model)
                  .toPromise()
                  .then((response: Response) => {
-                   self.resetForm();
-                   alert('Your quote has been published!');
+                   self.toggleForm(false);
+                   self._service
+                       .success(
+                         'Success',
+                         'Your quote has been published!',
+                         {timeOut: 5000});
                  })
                  .catch(() => {
-                   alert('Ops! Something went wrong. We\'re unable to publish your quote right now. Please, try again later.');
+                   self.toggleForm(false);
+                   self._service
+                       .error(
+                         'Error',
+                         'Ops! Something went wrong. We\'re unable to publish your quote right now. Please, try again later.',
+                         {timeOut: 5000});
                  });
     }
   }

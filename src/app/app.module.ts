@@ -8,8 +8,6 @@ import { AngularFireModule }     from 'angularfire2';
 import { ReCaptchaModule }       from 'angular2-recaptcha';
 import { MasonryModule }         from 'angular2-masonry';
 
-import { AppRoutingModule }      from './app-routing.module';
-
 import { ConstantService }       from  './services/config';
 
 import { AppComponent }          from './app.component';
@@ -17,6 +15,8 @@ import { SnHeaderComponent }     from './header/header.component';
 import { WallComponent }         from './wall/wall.component';
 import { QuoteComponent }        from './quote/quote.component';
 import { FloatingFormComponent } from './floating-form/floating-form.component';
+
+import {SimpleNotificationsModule} from 'angular2-notifications';
 
 // Must export the config
 export const firebaseConfig = {
@@ -29,9 +29,9 @@ export const firebaseConfig = {
 @NgModule({
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
     HttpModule,
+    FormsModule,
+    SimpleNotificationsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     ReCaptchaModule,
     MasonryModule

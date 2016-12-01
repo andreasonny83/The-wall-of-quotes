@@ -9,7 +9,6 @@ import '@angular/router';
 // RxJS
 import 'rxjs';
 
-// recaptcha
-import 'angular2-recaptcha';
-import 'angular2-masonry';
+// import 'angular2-recaptcha';
+// import 'angular2-masonry';
 // import 'angular2-notifications';

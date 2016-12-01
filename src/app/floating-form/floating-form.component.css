@@ -16,6 +16,7 @@
 
 .floating-form.show {
   pointer-events: auto;
+  background: rgba(0,0,0,.3);
 }
 
 form {
@@ -107,7 +108,7 @@ form button {
   left: 0;
   width: 56px;
   height: 56px;
-  line-height: 76px;
+  line-height: 78px;
 }
 
 .add-quote #open {
