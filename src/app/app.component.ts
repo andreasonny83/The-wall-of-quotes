@@ -13,9 +13,7 @@ import '../../images/touch/homescreen192.png';
   template: `
   <sn-header class="header"></sn-header>
 
-  <div class="content flex-auto container">
-    <wall></wall>
-  </div>
+  <wall></wall>
   `
 })
 export class AppComponent { }

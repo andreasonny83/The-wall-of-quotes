@@ -1,8 +1,10 @@
 @import '../../../public/css/variables.css';
 
 :host {
+  background-color: var(--primary-01);
   display: block;
-  padding-top: 15px;
+  overflow: auto;
+  height: 100%;
 }
 
 .wall {
@@ -21,16 +23,9 @@
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1100px) {
   /* For desktop: */
   .brick {
     width: 33.33%;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  /* For big desktops: */
-  .brick {
-    width: 25%;
   }
 }

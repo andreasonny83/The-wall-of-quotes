@@ -1,7 +1,15 @@
-<div class="center wall">
-  <h2>{{ oldies }}</h2>
+<div #scrollMe class="center wall">
+  <h2>{{ highlight }}</h2>
 
   <masonry>
+    <masonry-brick class="brick" *ngFor="let brick of latest | async">
+      <quote-component [quote]="brick"></quote-component>
+    </masonry-brick>
+  </masonry>
+
+  <h2>{{ oldies }}</h2>
+
+  <masonry (layoutComplete)="layoutComplete()">
     <masonry-brick class="brick" *ngFor="let brick of quotes | async">
       <quote-component [quote]="brick"></quote-component>
     </masonry-brick>
