@@ -12,6 +12,12 @@
   margin: 0 auto;
 }
 
+.brick-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .brick {
   width: 100%;
 }

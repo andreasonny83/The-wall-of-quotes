@@ -3,9 +3,11 @@
 :host {
   display: block;
   width: 100%;
+  position: relative;
 }
 
-.quote-box {
+.brick-component {
+  position: initial;
   display: flex;
   flex-direction: column;
 
@@ -20,23 +22,41 @@
   transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.quote-box:hover {
+.brick-component:hover {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),
               0 6px 10px 0 rgba(0,0,0,0.3);
 }
 
-.quote-box > .quote,
-.quote-box > .author {
+.brick-component:hover .quote {
+
+}
+
+.brick-component > .quote,
+.brick-component > .author {
   flex: 1 1 auto;
   padding: 10px 15px;
 }
 
-.quote-box > .quote {
+.brick-component > .quote {
   max-width: 500px;
   font-size: 18px;
+  height: 138px;
+  overflow: hidden;
+  position: relative;
 }
 
-.quote-box > .author {
+.brick-component > .quote:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  box-shadow: inset 0px -17px 11px -6px rgb(238, 238, 238);
+}
+
+.brick-component > .author {
   align-self: flex-end;
   font-style: italic;
 }
