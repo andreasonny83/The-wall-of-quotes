@@ -1,7 +1,8 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var helpers = require('./helpers');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const helpers = require('./helpers');
 
 module.exports = {
   entry: {
@@ -24,8 +25,7 @@ module.exports = {
         loader: 'html'
       }, {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-        include: helpers.root('images/touch'),
-        loader: 'file?name=images/touch/[name].[ext]'
+        loader: 'file?name=assets/[name].[hash].[ext]'
       }, {
         test: /\.css$/,
         include: helpers.root('public'),
@@ -49,6 +49,11 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       template: 'src/index.html'
-    })
+    }),
+
+
+    new CopyWebpackPlugin([
+      { from: 'src/assets', to: 'assets' }
+    ]),
   ]
 };

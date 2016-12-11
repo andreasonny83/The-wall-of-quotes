@@ -1,0 +1,12 @@
+<div class="brick-component">
+  <span class="quote">
+    <span class="quote-start">&ldquo;</span>
+    <span>{{quote.quote}}</span>
+    <span class="quote-end">&rdquo;</span>
+  </span>
+  <span class="author">- {{quote.author}}</span>
+
+  <share-component twitter="true" [quote]="quote.quote + ' - ' + quote.author"></share-component>
+
+  <span class="creator">Posted by: {{quote.creator}}</span>
+</div>

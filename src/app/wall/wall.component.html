@@ -1,19 +1,46 @@
 <div #scrollMe class="center wall">
-  <h2>{{ highlight }}</h2>
+  <div class="higlight" *ngIf="!offline">
+    <h2>{{ highlight }}</h2>
 
-  <masonry>
-    <masonry-brick class="brick" *ngFor="let brick of latest | async">
-      <quote-component [quote]="brick"></quote-component>
-    </masonry-brick>
-  </masonry>
+    <div class="brick__container--higlight">
+      <brick-component class="brick"
+                       *ngFor="let brick of latest | async"
+                       [quote]="brick">
+      </brick-component>
+    </div>
+  </div>
 
-  <h2>{{ oldies }}</h2>
+  <div class="oldies" *ngIf="!offline">
+    <h2>{{ oldies }}</h2>
 
-  <masonry (layoutComplete)="layoutComplete()">
-    <masonry-brick class="brick" *ngFor="let brick of quotes | async">
-      <quote-component [quote]="brick"></quote-component>
-    </masonry-brick>
-  </masonry>
+    <div class="brick__container">
+      <brick-component class="brick"
+                       *ngFor="let brick of quotes | async"
+                       [quote]="brick">
+      </brick-component>
+    </div>
+  </div>
+
+  <!-- Offline support for debugging only -->
+  <div class="mocks" *ngIf="!!offline">
+    <h2>Mock data</h2>
+
+    <div class="brick__container">
+      <brick-component class="brick"
+                       *ngFor="let brick of mocks"
+                       [quote]="brick">
+      </brick-component>
+    </div>
+  </div>
+  <!-- Offline support for debugging only -->
+
+  <button type="button"
+          name="load-more"
+          class="load-more"
+          *ngIf="!endOfQuotes"
+          (click)="loadMore()">
+    Load More
+  </button>
 
   <floating-form></floating-form>
 </div>

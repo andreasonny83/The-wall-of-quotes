@@ -1,5 +1,8 @@
 <div class="quote-box">
   <span class="quote">{{quote.quote}}</span>
   <span class="author">{{quote.author}}</span>
+
+  <share-component twitter="true" [quote]="quote.quote + ' - ' + quote.author"></share-component>
+
   <span class="creator">Posted by: {{quote.creator}}</span>
 </div>
