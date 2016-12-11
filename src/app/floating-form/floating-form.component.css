@@ -2,7 +2,6 @@
 
 .floating-form {
   position: fixed;
-  padding: 10px;
   box-sizing: border-box;
 
   top: 0;
@@ -12,6 +11,7 @@
 
   pointer-events: none;
   overflow: hidden;
+  z-index: 19;
 }
 
 .floating-form.show {
@@ -25,9 +25,8 @@ form {
   height: 100%;
 
   background: #EEE;
-  padding: 8px;
+  padding: 12px;
   margin-bottom: 25px;
-  border-radius: 3px;
 
   transition: all .2s cubic-bezier(.4,0,.2,1);
   transform: translateY(20px);
@@ -52,8 +51,9 @@ form .row {
 }
 
 form label {
-  color: #222;
   flex: 1;
+  font-size: 24px;
+  color: #222;
 }
 
 form input,
@@ -151,5 +151,6 @@ form.show + .button-container #close {
       height: initial;
       right: 25px;
       bottom: 90px;
+      border-radius: 3px;
     }
 }

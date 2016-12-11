@@ -11,44 +11,7 @@ import { defaultIcons, Icons } from "./icons"
       'quote'
     ],
     encapsulation: ViewEncapsulation.None,
-    styles: [`
-      .icon {
-        display: flex;
-        align-items: center;
-      }
-      .share-wrapper {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-around;
-        box-sizing: border-box;
-        margin-top: 5px;
-        padding: 4px 0 0;
-        height: 25px;
-        overflow: hidden;
-        background: rgba(51, 51, 51, 0.2);
-        box-shadow: inset 0 5px 15px -7px rgba(0,0,0,.4),
-                    inset 0 -5px 15px -7px rgba(0,0,0,.4);
-        transition: all .15s cubic-bezier(0, 0, 0.2, 1);
-      }
-      .share-wrapper:hover {
-        height: 52px;
-        padding: 10px 0;
-      }
-      .icon .color {
-        fill: rgba(0, 0, 0, 0.2);
-        transition: fill .15s linear;
-      }
-      .icon-facebook:hover .color {
-        fill: #4D6FA9;
-      }
-      .icon-twitter:hover .color {
-        fill: #76A9EA;
-      }
-      .icon-google:hover .color {
-        fill: #DC4E41;
-      }
-    `],
+    styleUrls: ['./share.component.css'],
     template: `
       <div class="share-wrapper">
         <a href="#" (click)="share('fb', 'https://the-wall-of-quotes.firebaseapp.com/', 'my title', 'my desc')">

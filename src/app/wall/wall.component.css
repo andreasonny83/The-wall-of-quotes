@@ -1,5 +1,10 @@
 @import '../../../public/css/variables.css';
 
+@font-face {
+  font-family: 'Amatic SC';
+  src: url('/assets/fonts/Amatic_SC/AmaticSC-Regular.ttf') format('truetype');
+}
+
 :host {
   background-color: var(--primary-01);
   display: block;
@@ -7,31 +12,72 @@
   height: 100%;
 }
 
-.wall {
-  max-width: 1600px;
-  margin: 0 auto;
+h2 {
+  font-size: 32px;
 }
 
-.brick-container {
+.wall {
+  max-width: 1600px;
+  margin: 10px auto 50px;
+  font-family: 'Amatic SC', cursive;
+}
+
+.higlight {
+  overflow: hidden;
+}
+
+.brick__container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.brick__container--higlight {
+  white-space: nowrap;
+}
+
+.brick__container--higlight .brick {
+  display: inline-block;
+  white-space: initial;
+  width: 100%;
+  max-width: 800px;
 }
 
 .brick {
   width: 100%;
 }
 
-@media only screen and (min-width: 600px) {
+.load-more {
+  margin: 10px 0;
+  border: 1px solid #eee;
+  background: transparent;
+  border-radius: 5px;
+  padding: 12px 18px;
+  font-size: 18px;
+  color: #eee;
+  transition: background .15s linear,
+              color .15s linear;
+}
+
+.load-more:hover {
+  background: rgba(255, 255, 255, .2);
+}
+
+.load-more:active {
+  background: #eee;
+  color: #222;
+}
+
+@media only screen and (min-width: 800px) {
   /* For tablets: */
   .brick {
     width: 50%;
   }
 }
 
-@media only screen and (min-width: 1100px) {
+@media only screen and (min-width: 1200px) {
   /* For desktop: */
   .brick {
-    width: 33.33%;
+    width: 33.3%;
   }
 }

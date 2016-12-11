@@ -1,16 +1,10 @@
-import { Component,
-         ViewChild,
-         ElementRef,
-         HostListener,
-         OnInit }         from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { Observable }     from 'rxjs';
+import { Observable }        from 'rxjs';
 import { FirebaseListObservable,
-         AngularFire }     from 'angularfire2';
+         AngularFire }       from 'angularfire2';
 
-import { ConstantService } from  '../services/config';
-
-import { Subject } from 'rxjs/Subject';
+import { Subject }           from 'rxjs/Subject';
 
 @Component({
   selector: 'wall',
@@ -18,15 +12,14 @@ import { Subject } from 'rxjs/Subject';
   templateUrl: './wall.component.html'
 })
 export class WallComponent implements OnInit {
-  private mutationObserver: MutationObserver;
-  private nativeElement: HTMLElement;
-  private busy: boolean = true;
-  private offline: boolean = false;
+  private offline: boolean;
+  private quotesLoaded: number = 0;
+  private endOfQuotes: boolean = true;
 
   public highlight: string;
   public oldies: string;
-  // Limit to latest 100 records only
-  public limit: number = 100;
+  public limit: number = 50;
+
   public latest: FirebaseListObservable<any[]>;
   public quotes: FirebaseListObservable<any[]>;
   public quoteLimit = new Subject<number>();
@@ -44,46 +37,25 @@ export class WallComponent implements OnInit {
     { quote: 'quote-10', author: 'author-10', creator: 'creator-10' },
   ];
 
-  // @HostListener('scroll') private scrollHandler() {
-  //   if (this.busy) return;
-  //
-  //   if (this.nativeElement.scrollTop + this.nativeElement.offsetHeight >
-  //       this.nativeElement.scrollHeight - 100) {
-  //     this.busy = true;
-  //     this.limit += 50;
-  //     this.quoteLimit.next(this.limit);
-  //   }
-  // }
-
-  constructor(private af: AngularFire, element: ElementRef) {
-    this.nativeElement = element.nativeElement;
-  }
+  constructor(private af: AngularFire) { }
 
   ngOnInit(): void {
     let self = this;
 
-    // Offline support
+    // Set to `true` for offline support
     self.offline = false;
 
-    self.highlight = 'Latest quotes';
-    self.oldies = 'Our quotes';
+    self.highlight = 'Quotes of the day';
+    self.oldies = 'The Wall';
 
     self.latest = self.af.database.list('/quotes', {
-      query: { orderByChild: 'time', limitToFirst: 6 }
+      query: { orderByChild: 'time', limitToFirst: 1 }
     });
   }
 
   ngAfterContentInit(): void {
     let self    = this;
     let lastNew = new Subject();
-
-    // self.mutationObserver = new MutationObserver(() => {
-    //   self.nativeElement.scrollTop = 0;
-    // });
-    //
-    // self.mutationObserver.observe(this.nativeElement, {
-    //   attributes: true
-    // });
 
     self.quotes = self.af.database.list('/quotes', {
       query: {
@@ -97,9 +69,19 @@ export class WallComponent implements OnInit {
       this.quoteLimit.next(self.limit);
       lastNew.next(snapshots.pop().time);
     });
+
+    self.quotes.subscribe(snapshots => {
+      if (snapshots.length > this.quotesLoaded) {
+        this.endOfQuotes = false;
+        this.quotesLoaded = snapshots.length;
+      } else {
+        this.endOfQuotes = true;
+      }
+    });
   }
 
-  layoutComplete(): void {
-    this.busy = false;
+  loadMore(): void {
+    this.limit += 50;
+    this.quoteLimit.next(this.limit);
   }
 }

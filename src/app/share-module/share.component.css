@@ -1,0 +1,32 @@
+.icon {
+  display: flex;
+  align-items: center;
+}
+
+.share-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  box-sizing: border-box;
+  margin-top: 5px;
+  padding: 6px 0;
+  background-color: rgba(0,0,0,.1);
+}
+
+.icon .color {
+  fill: rgba(0, 0, 0, 0.2);
+  transition: fill .15s linear;
+}
+
+.icon-facebook:hover .color {
+  fill: #4D6FA9;
+}
+
+.icon-twitter:hover .color {
+  fill: #76A9EA;
+}
+
+.icon-google:hover .color {
+  fill: #DC4E41;
+}
