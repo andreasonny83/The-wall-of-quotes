@@ -50,15 +50,7 @@
   font-size: 42px;
   font-family: cursive;
   vertical-align: bottom;
-  line-height: 15px;
-}
-
-.quote-start {
-  margin-right: 6px;
-}
-
-.quote-end {
-  margin-left: 4px;
+  line-height: 25px;
 }
 
 .author {

@@ -1,23 +1,22 @@
-import { NgModule }              from '@angular/core';
-import { BrowserModule }         from '@angular/platform-browser';
-import { RouterModule }          from '@angular/router';
-import { FormsModule }           from '@angular/forms';
-import { HttpModule }            from '@angular/http';
+import { NgModule }                  from '@angular/core';
+import { BrowserModule }             from '@angular/platform-browser';
+import { RouterModule }              from '@angular/router';
+import { FormsModule }               from '@angular/forms';
+import { HttpModule }                from '@angular/http';
 
-import { AngularFireModule }     from 'angularfire2';
-import { ReCaptchaModule }       from 'angular2-recaptcha';
-import { ShareModule }           from './share-module';
+import { AngularFireModule }         from 'angularfire2';
+import { ReCaptchaModule }           from 'angular2-recaptcha';
+import { ShareModule }               from './share-module';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 
-import { ConstantService }       from  './services/config';
+import { ConstantService }           from  './services/config';
 
-import { AppComponent }          from './app.component';
-import { SnHeaderComponent }     from './header/header.component';
-import { WallComponent }         from './wall/wall.component';
-import { QuoteComponent }        from './quote/quote.component';
-import { BrickComponent }        from './brick/brick.component';
-import { FloatingFormComponent } from './floating-form/floating-form.component';
-
-import {SimpleNotificationsModule} from 'angular2-notifications';
+import { AppComponent }              from './app.component';
+import { SnHeaderComponent }         from './header/header.component';
+import { WallComponent }             from './wall/wall.component';
+import { QuoteComponent }            from './quote/quote.component';
+import { BrickComponent }            from './brick/brick.component';
+import { FloatingFormComponent }     from './floating-form/floating-form.component';
 
 // Must export the config
 export const firebaseConfig = {
