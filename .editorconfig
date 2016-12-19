@@ -1,4 +1,12 @@
+#
+# the-wall-of-quotes
+#
+# Copyright 2016, Andrea Sonny, All rights reserved.
+#
+# @author: Andrea Sonny <andreasonny83@gmail.com>
+#
 # http://editorconfig.org
+
 root = true
 
 [*]
@@ -10,5 +18,5 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 
 [*.md]
-max_line_length = 0
+insert_final_newline = false
 trim_trailing_whitespace = false

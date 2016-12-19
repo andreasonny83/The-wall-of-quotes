@@ -6,5 +6,5 @@
  * @author: Andrea Sonny <andreasonny83@gmail.com>
  */
 
-// Look in ./config for karma.conf.js
-module.exports = require('./config/karma.conf.js');
+// look in ./config for protractor.conf.js
+exports.config = require('./config/protractor.conf.js').config;

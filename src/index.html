@@ -1,55 +1,46 @@
 <!DOCTYPE html>
-<!--
-Copyright (c) 2016 andreasonny83@gmail.com.
-Licensed under the MIT License.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.-->
 <html>
+  <!--
+  the-wall-of-quotes
+  Copyright 2016, Andrea Sonny, All rights reserved.
+  @author: Andrea Sonny <andreasonny83@gmail.com>
+  -->
   <head>
-    <base href="/">
-    <title>The Wall Of Quotes</title>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="/assets/manifest.json">
-    <!-- Supporting homescreen-installed apps -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <!-- Icon -->
-    <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/touch/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/touch/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/touch/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/touch/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/touch/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/touch/apple-icon-120x120.png">
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/images/touch/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/touch/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/touch/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/touch/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/touch/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/touch/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/touch/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/touch/favicon-16x16.png">
 
-    <meta name="msapplication-TileColor" content="#272524">
-    <meta name="msapplication-TileImage" content="/assets/images/touch/ms-icon-144x144.png">
-    <meta name="theme-color" content="#3c3938">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <meta name="description" content="<%= htmlWebpackPlugin.options.title %>">
+
+    <% if (webpackConfig.htmlElements.headTags) { %>
+    <!-- Configured Head Tags  -->
+    <%= webpackConfig.htmlElements.headTags %>
+    <% } %>
+
+    <!-- base url -->
+    <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
   </head>
   <body>
-    <app class="app">Loading...</app>
+    <app>
+      Loading...
+    </app>
+
+    <!-- Google Analytics: change UA-71073175-1 to be your site's ID -->
+    <script>
+      (function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=r;A[l]=A[l]||function(){
+      (A[l].q=A[l].q||[]).push(arguments)},A[l].l=1*new Date();a=n.createElement(g),
+      r=n.getElementsByTagName(g)[0];a.async=1;a.src=u;r.parentNode.insertBefore(a,r)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-71073175-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
+    <!-- Webpack Dev Server reload -->
+    <script src="/webpack-dev-server.js"></script>
+    <% } %>
   </body>
 </html>
