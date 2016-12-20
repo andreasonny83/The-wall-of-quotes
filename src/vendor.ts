@@ -18,6 +18,9 @@
  // RxJS
  import 'rxjs';
  import 'angular2-notifications/components';
+ import 'angularfire2';
+ import 'angular2-recaptcha';
+ import 'angular2-masonry';
 
  if ('production' === ENV) {
    // Production

@@ -14,6 +14,9 @@ import { AppModule }              from './app/app.module';
 if ('production' === ENV) {
   // Production
   enableProdMode();
+} else {
+  // Development
+  console.log('running in development mode.');
 }
 
 /*

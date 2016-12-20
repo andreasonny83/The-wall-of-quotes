@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 
-import { Observable }        from 'rxjs';
+import { Observable }                          from 'rxjs';
 import { FirebaseListObservable,
-         AngularFire }       from 'angularfire2';
+         AngularFire }                         from 'angularfire2';
 
-import { Subject }           from 'rxjs/Subject';
+import { Subject }                             from 'rxjs/Subject';
 
 @Component({
   selector: 'wall',
   styleUrls: ['./wall.component.css'],
   templateUrl: './wall.component.html'
 })
-export class WallComponent implements OnInit {
+export class WallComponent implements OnInit, AfterContentInit {
   private offline: boolean;
   private quotesLoaded: number = 0;
   private endOfQuotes: boolean = true;
@@ -37,7 +37,9 @@ export class WallComponent implements OnInit {
     { quote: 'quote-10', author: 'author-10', creator: 'creator-10' },
   ];
 
-  constructor(private af: AngularFire) { }
+  constructor(private af: AngularFire) {
+
+  }
 
   ngOnInit(): void {
     let self = this;

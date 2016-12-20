@@ -2,6 +2,14 @@
   <div class="higlight" *ngIf="!offline">
     <h2>{{ highlight }}</h2>
 
+    <masonry id="container">
+      <masonry-brick class="brick" *ngFor="let pin of pins | async">
+        <brick-component class="brick"
+                         [quote]="item">
+        </brick-component>
+      </masonry-brick>
+    </masonry>
+
     <div class="brick__container--higlight">
       <brick-component class="brick"
                        *ngFor="let brick of latest | async"

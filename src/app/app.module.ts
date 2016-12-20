@@ -6,8 +6,9 @@ import { HttpModule }                from '@angular/http';
 
 import { AngularFireModule }         from 'angularfire2';
 import { ReCaptchaModule }           from 'angular2-recaptcha';
+import { SimpleNotificationsModule } from 'angular2-notifications/components';
+import { MasonryModule }             from 'angular2-masonry';
 import { ShareModule }               from './share-module';
-import { SimpleNotificationsModule } from 'angular2-notifications';
 
 import { ConstantService }           from  './services/config';
 
@@ -34,6 +35,7 @@ export const firebaseConfig = {
     SimpleNotificationsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     ReCaptchaModule,
+    MasonryModule,
     ShareModule
   ],
   declarations: [
