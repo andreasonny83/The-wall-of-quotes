@@ -5,17 +5,9 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "noEmitHelpers": true,
-    "strictNullChecks": false,
     "baseUrl": "./src",
-    "paths": {
-    },
-    "lib": [
-      "dom",
-      "es6"
-    ],
+    "lib": ["dom", "es6"],
     "types": [
       "jasmine",
       "node",
