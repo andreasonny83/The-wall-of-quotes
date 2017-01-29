@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Roboto|Bad+Script|Patrick+Hand');
 @import "variables.css";
 @import "normalize.css";
 @import "flex.css";
+@import "spinner.css";
 
 app, .app, .header {
 }
@@ -19,5 +20,5 @@ app, .app {
 .header {
   box-shadow: 0 5px 5px rgba(0, 0, 0, .25);
   background-color: var(--primary-02);
-  border-bottom: 1px solid var(--primary-02);
+  border-bottom: 1px solid var(--primary-03);
 }

@@ -8,6 +8,7 @@
   left: 0;
   width: 100%;
   height: 100%;
+  font-family: Roboto, helvetica, arial, sans-serif;
 
   pointer-events: none;
   overflow: hidden;
@@ -19,6 +20,21 @@
   background: rgba(0,0,0,.3);
 }
 
+.floating-form.show.wait {
+  pointer-events: none;
+}
+
+.floating-form.show.wait form:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.4);
+}
+
 form {
   opacity: 0;
   pointer-events: none;
@@ -27,6 +43,7 @@ form {
   background: #EEE;
   padding: 12px;
   margin-bottom: 25px;
+  font-family: Roboto, helvetica, arial, sans-serif;
 
   transition: all .2s cubic-bezier(.4,0,.2,1);
   transform: translateY(20px);
@@ -52,8 +69,9 @@ form .row {
 
 form label {
   flex: 1;
-  font-size: 24px;
+  font-size: 18px;
   color: #222;
+  font-family: Roboto, helvetica, arial, sans-serif;
 }
 
 form input,
@@ -66,6 +84,9 @@ form textarea,
 form button {
   font-size: 16px;
   line-height: 18px;
+  font-weight: 200;
+  color: #000;
+  font-family: Roboto, helvetica, arial, sans-serif;
 }
 
 form button {
@@ -87,7 +108,7 @@ form button {
   height: 56px;
   width: 56px;
   position: relative;
-  background-color: #d23f31;
+  background-color: var(--orange-01);
 
   box-shadow: 0 0 4px rgba(0,0,0,.15),
               0 4px 8px rgba(0,0,0,.3);
@@ -142,6 +163,13 @@ form.show + .button-container #open {
 form.show + .button-container #close {
   transform: scale(1) rotate(180deg);
   opacity: 1;
+}
+
+.spinner {
+  position: fixed;
+  z-index: 99;
+  left: calc(50% - 30px);
+  top: calc(50% - 100px);
 }
 
 @media only screen and (min-width: 600px)

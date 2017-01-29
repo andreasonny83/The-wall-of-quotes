@@ -9,17 +9,18 @@
   display: flex;
   flex-direction: row;
 
-  height: 60px;
+  height: 80px;
 }
 
 .header__first .header__title {
   flex: 1 1 auto;
   margin: 0;
   padding: 0;
-  font-size: 28px;
-  line-height: 28px;
+  font-size: 32px;
   color: #eee;
   align-self: center;
+  font-family: 'Bad Script', cursive;
+  font-weight: 200;
 }
 
 .header__first .header__env {

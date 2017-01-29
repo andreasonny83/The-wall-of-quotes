@@ -1,5 +1,11 @@
-<div #scrollMe class="center wall">
-  <div class="higlight" *ngIf="!offline">
+<div class="center wall">
+
+  <div class="spinner" *ngIf="!isReady">
+    <div class="dot1"></div>
+    <div class="dot2"></div>
+  </div>
+
+  <!-- <div class="higlight" *ngIf="quotes | async">
     <h2>{{ highlight }}</h2>
 
     <masonry id="container">
@@ -16,10 +22,10 @@
                        [quote]="brick">
       </brick-component>
     </div>
-  </div>
+  </div> -->
 
-  <div class="oldies" *ngIf="!offline">
-    <h2>{{ oldies }}</h2>
+  <div class="oldies" *ngIf="isReady">
+    <h2>{{ theWall }}</h2>
 
     <div class="brick__container">
       <brick-component class="brick"
@@ -29,26 +35,8 @@
     </div>
   </div>
 
-  <!-- Offline support for debugging only -->
-  <div class="mocks" *ngIf="!!offline">
-    <h2>Mock data</h2>
-
-    <div class="brick__container">
-      <brick-component class="brick"
-                       *ngFor="let brick of mocks"
-                       [quote]="brick">
-      </brick-component>
-    </div>
-  </div>
-  <!-- Offline support for debugging only -->
-
-  <button type="button"
-          name="load-more"
-          class="load-more"
-          *ngIf="!endOfQuotes"
-          (click)="loadMore()">
-    Load More
-  </button>
-
   <floating-form></floating-form>
+
+  <simple-notifications></simple-notifications>
+
 </div>

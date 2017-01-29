@@ -6,7 +6,13 @@
   </span>
   <span class="author">- {{quote.author}}</span>
 
-  <share-component twitter="true" [quote]="quote.quote + ' - ' + quote.author"></share-component>
+  <div class="footer">
+    <share-component twitter="true"
+                     [quote]="quote.quote + ' - ' + quote.author">
+    </share-component>
 
-  <span class="creator">Posted by: {{quote.creator}}</span>
+    <span class="creator">
+      Posted by: {{quote.creator}}
+    </span>
+  </div>
 </div>

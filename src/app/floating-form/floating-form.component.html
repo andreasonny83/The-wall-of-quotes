@@ -1,6 +1,16 @@
-<div class="floating-form" [ngClass]="formClass" (click)="closeForm($event)">
+<div class="floating-form"
+     [ngClass]="formClass"
+     [class.wait]="wait"
+     (click)="closeForm($event)">
+
   <form (ngSubmit)="addQuote()"
         [ngClass]="formClass">
+
+    <div class="spinner" *ngIf="wait">
+      <div class="dot1"></div>
+      <div class="dot2"></div>
+    </div>
+
     <div class="row">
       <label for="quote">Quote</label>
       <textarea [(ngModel)]="model.quote" name="quote"
@@ -36,6 +46,7 @@
     <button type="button"
             name="addQuote"
             class="add-quote"
+            [disabled]="wait"
             (click)="toggleForm()">
       <i class="icon">
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -58,5 +69,4 @@
     </button>
   </div>
 
-  <simple-notifications></simple-notifications>
 </div>

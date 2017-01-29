@@ -45,6 +45,7 @@
     "webdriver:update": "npm run webdriver-manager update",
     "webpack-dev-server": "webpack-dev-server",
     "webpack": "webpack",
+    "precommit": "npm test",
     "commit": "git-cz"
   },
   "dependencies": {
@@ -87,6 +88,7 @@
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.21.0",
     "http-server": "^0.9.0",
+    "husky": "^0.13.1",
     "imports-loader": "^0.6.5",
     "istanbul-instrumenter-loader": "0.2.0",
     "json-loader": "^0.5.4",

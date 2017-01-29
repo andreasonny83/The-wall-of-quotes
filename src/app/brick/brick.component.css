@@ -1,10 +1,5 @@
 @import '../../public/css/variables.css';
 
-@font-face {
-  font-family: 'Bad Script';
-  src: url('/assets/fonts/Bad_Script/BadScript-Regular.ttf') format('truetype');
-}
-
 :host {
   display: inline-block;
   width: 100%;
@@ -20,29 +15,29 @@
   font-size: 16px;
   color: #e6e6e6;
 
-  border-radius: 3px;
-  background-color: #808080;
+  border-radius: 4px;
+  background-color: rgba(66, 66, 66, 0.95);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
-  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .brick-component:hover {
+  background-color: rgba(61, 61, 61, 0.95);
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),
               0 6px 10px 0 rgba(0,0,0,0.3);
 }
 
 .quote,
 .author {
-  font-family: 'Bad Script', cursive;
+  font-family: 'Patrick Hand', cursive;
   padding: 10px 15px;
 }
 
 .quote {
-  margin-top: 15px;
+  margin: 15px 0 0;
 
   text-align: left;
-  font-size: 21px;
-  line-height: 32px;
+  font-size: 27px;
 }
 
 .quote-start,
@@ -54,14 +49,23 @@
 }
 
 .author {
+  padding: 0 15px 15px;
   font-size: 18px;
   font-style: italic;
   text-align: right;
 }
 
+.footer {
+  margin-bottom: 8px;
+  padding: 5px 0;
+  box-sizing: content-box;
+  color: #353535;
+  background-color: rgba(255, 255, 255, .8);
+}
+
 .creator {
-  padding: 3px;
-  font-size: 16px;
-  line-height: 14px;
-  background-color: rgba(0,0,0,.1);
+  font-family: 'Bad Script', cursive;
+  display: block;
+  font-weight: 400;
+  font-size: 18px;
 }

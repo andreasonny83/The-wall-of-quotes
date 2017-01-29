@@ -5,7 +5,9 @@ html, body {
   position: relative;
   overflow: hidden;
   font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 200;
   color: #fff;
 
   min-width: 320px;

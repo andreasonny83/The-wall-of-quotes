@@ -11,10 +11,10 @@ import { ConstantService }    from  '../services/config';
 import { NotificationsService, SimpleNotificationsComponent } from 'angular2-notifications';
 
 export interface Model {
-  quote: string,
-  author: string,
-  creator: string,
-  captcha: string
+  quote: string;
+  author: string;
+  creator: string;
+  captcha: string;
 }
 
 @Component({
@@ -66,7 +66,11 @@ export class FloatingFormComponent {
    */
   private toggleForm(reset: boolean = true): void {
       this.wait = false;
-      reset && this.resetForm();
+
+      if (reset) {
+        this.resetForm();
+      }
+
       this.formClass = this.formClass ? '' : 'show';
   }
 
@@ -75,7 +79,7 @@ export class FloatingFormComponent {
   }
 
   private addQuote(): any {
-    var self = this;
+    let self = this;
 
     if (this.model.quote &&
         this.model.author &&
@@ -100,7 +104,8 @@ export class FloatingFormComponent {
                    self._service
                        .error(
                          'Error',
-                         'Ops! Something went wrong. We\'re unable to publish your quote right now. Please, try again later.',
+                         'Ops! Something went wrong. We\'re unable to publish' +
+                         ' your quote right now. Please, try again later.',
                          {timeOut: 5000});
                  });
     }
