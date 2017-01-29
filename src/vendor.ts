@@ -21,6 +21,7 @@
  import 'angularfire2';
  import 'angular2-recaptcha';
  import 'angular2-masonry';
+ import 'angular2-cookie-law';
 
  if ('production' === ENV) {
    // Production

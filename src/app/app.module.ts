@@ -8,6 +8,7 @@ import { AngularFireModule }         from 'angularfire2';
 import { ReCaptchaModule }           from 'angular2-recaptcha';
 import { SimpleNotificationsModule } from 'angular2-notifications/components';
 import { MasonryModule }             from 'angular2-masonry';
+import { CookieLawModule }           from 'angular2-cookie-law';
 import { ShareModule }               from './share-module';
 
 import { ConstantService }           from  './services/config';
@@ -25,7 +26,7 @@ export const firebaseConfig = {
   authDomain: ConstantService.AUTH_DOMAIN,
   databaseURL: ConstantService.DB,
   storageBucket: ConstantService.BUCKET
-}
+};
 
 @NgModule({
   imports: [
@@ -36,7 +37,8 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     ReCaptchaModule,
     MasonryModule,
-    ShareModule
+    ShareModule,
+    CookieLawModule
   ],
   declarations: [
     AppComponent,

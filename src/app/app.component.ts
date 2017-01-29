@@ -8,6 +8,8 @@ import '../public/css/styles.css';
   <sn-header class="header"></sn-header>
 
   <wall></wall>
+
+  <cookie-law></cookie-law>
   `
 })
 export class AppComponent { }
