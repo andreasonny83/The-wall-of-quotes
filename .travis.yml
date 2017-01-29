@@ -14,6 +14,7 @@ script:
   - npm run test:headless
 after_success:
   - npm run semantic-release
+  - npm run deploy -- --token=${FIREBASE_API_TOKEN}
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/

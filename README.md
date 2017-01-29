@@ -81,6 +81,7 @@ The build artifacts will be stored in the `dist/` directory.
 
 1.  Fork it!
 1.  Create your feature branch: `git checkout -b my-new-feature`
+1.  Stage your local files: `git add .`
 1.  Commit your changes: `npm run commit`
 1.  Push to the branch: `git push origin my-new-feature`
 1.  Submit a pull request :D
