@@ -1,14 +1,26 @@
-import { Component,
-         ViewChild,
-         OnInit }             from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  OnInit,
+} from '@angular/core';
 
-import { Http, Response }     from '@angular/http';
+import {
+  Http,
+  Response
+} from '@angular/http';
 
-import { ReCaptchaComponent } from 'angular2-recaptcha/lib/captcha.component';
+import {
+  ReCaptchaComponent
+} from 'angular2-recaptcha/lib/captcha.component';
 
-import { ConstantService }    from  '../services/config';
+import {
+  ConstantService
+} from  '../services/config';
 
-import { NotificationsService, SimpleNotificationsComponent } from 'angular2-notifications';
+import {
+  NotificationsService,
+  SimpleNotificationsComponent
+} from 'angular2-notifications';
 
 export interface Model {
   quote: string;
@@ -22,7 +34,7 @@ export interface Model {
  styleUrls: ['./floating-form.component.css'],
  templateUrl: './floating-form.component.html'
 })
-export class FloatingFormComponent {
+export class FloatingFormComponent implements OnInit {
   @ViewChild(ReCaptchaComponent)
     public captcha: ReCaptchaComponent;
 
@@ -31,11 +43,16 @@ export class FloatingFormComponent {
   public formClass: string = '';
   public reCaptchaKey: string = '6LdL0AwUAAAAAMocAirWnZylU1XEOmkTV3Zx77ZZ';
 
-  constructor(private http: Http,
-              private _service: NotificationsService) { }
+  private isLoading: boolean = false;
 
-  ngOnInit(): void {
+  constructor(
+    private http: Http,
+    private _service: NotificationsService
+  ) { }
+
+  public ngOnInit(): void {
     this.resetForm();
+    this.isLoading = true;
   }
 
   private resetForm(): void {

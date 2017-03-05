@@ -1,11 +1,14 @@
 @import '../../public/css/variables.css';
 
 :host {
-  background-image: url(/assets/images/TheWall.jpg);
-  background-color: #1d1d1d;
+  background-color: #232323;
   display: block;
   overflow: auto;
   height: 100%;
+}
+
+.is-loading {
+  display: none;
 }
 
 .wall {

@@ -6,10 +6,10 @@ describe('App', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [WallComponent]
-    })
-  })
+    });
+  });
 
   it ('should work', () => {
     expect(true).toBe(true);
-  })
-})
+  });
+});

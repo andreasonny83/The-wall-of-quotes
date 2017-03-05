@@ -16,7 +16,6 @@ const AssetsPlugin = require('assets-webpack-plugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 const HtmlElementsPlugin = require('./html-elements-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
@@ -97,21 +96,17 @@ module.exports = function (options) {
         {
           test: /\.ts$/,
           use: [
-            'awesome-typescript-loader',
-            'angular2-template-loader',
-            'angular-router-loader'
+            {
+              loader: 'awesome-typescript-loader',
+              options: {
+                configFileName: helpers.root('src/tsconfig.json')
+              }
+            },
+            {
+              loader: 'angular2-template-loader'
+            }
           ],
           exclude: [/\.(spec|e2e)\.ts$/]
-        },
-
-        /*
-         * Json loader support for *.json files.
-         *
-         * See: https://github.com/webpack/json-loader
-         */
-        {
-          test: /\.json$/,
-          use: 'json-loader'
         },
 
         /*
@@ -126,7 +121,6 @@ module.exports = function (options) {
           use: [
             'style-loader',
             'css-loader',
-            'postcss-loader'
           ]
         },
 
@@ -136,7 +130,6 @@ module.exports = function (options) {
           exclude: [/node_modules/],
           use: [
             'raw-loader',
-            'postcss-loader'
           ]
         },
 
@@ -172,13 +165,6 @@ module.exports = function (options) {
         prettyPrint: true
       }),
 
-      /*
-       * Plugin: ForkCheckerPlugin
-       * Description: Do type checking in a separate process, so webpack don't need to wait.
-       *
-       * See: https://github.com/s-panferov/awesome-typescript-loader#forkchecker-boolean-defaultfalse
-       */
-      new ForkCheckerPlugin(),
       /*
        * Plugin: CommonsChunkPlugin
        * Description: Shares common code between the pages.

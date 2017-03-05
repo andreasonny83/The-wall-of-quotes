@@ -27,12 +27,19 @@
   <div class="oldies" *ngIf="isReady">
     <h2>{{ theWall }}</h2>
 
-    <div class="brick__container">
+    <!-- <div class="brick__container">
       <brick-component class="brick"
                        *ngFor="let brick of quotes | async"
                        [quote]="brick">
-      </brick-component>
-    </div>
+      </brick-component> -->
+
+    <!-- <div class="brick__container"> -->
+      <masonry id="container">
+        <masonry-brick class="brick" *ngFor="let brick of bricks">
+          <brick-component class="brick" [quote]="brick"></brick-component>
+        </masonry-brick>
+      </masonry>
+    <!-- </div> -->
   </div>
 
   <floating-form></floating-form>
