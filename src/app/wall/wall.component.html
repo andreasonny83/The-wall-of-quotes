@@ -1,48 +1,19 @@
 <div class="center wall">
 
-  <div class="spinner" *ngIf="!isReady">
-    <div class="dot1"></div>
-    <div class="dot2"></div>
-  </div>
-
-  <!-- <div class="higlight" *ngIf="quotes | async">
-    <h2>{{ highlight }}</h2>
+  <div class="oldies">
+    <h2>{{ theWall }}</h2>
 
     <masonry id="container">
-      <masonry-brick class="brick" *ngFor="let pin of pins | async">
-        <brick-component class="brick"
-                         [quote]="item">
-        </brick-component>
+      <masonry-brick class="brick" *ngFor="let brick of bricks">
+        <brick-component class="brick" [quote]="brick"></brick-component>
       </masonry-brick>
     </masonry>
 
-    <div class="brick__container--higlight">
-      <brick-component class="brick"
-                       *ngFor="let brick of latest | async"
-                       [quote]="brick">
-      </brick-component>
+    <div class="spinner" *ngIf="loadMore">
+      <div class="dot1"></div>
+      <div class="dot2"></div>
     </div>
-  </div> -->
-
-  <div class="oldies" *ngIf="isReady">
-    <h2>{{ theWall }}</h2>
-
-    <!-- <div class="brick__container">
-      <brick-component class="brick"
-                       *ngFor="let brick of quotes | async"
-                       [quote]="brick">
-      </brick-component> -->
-
-    <!-- <div class="brick__container"> -->
-      <masonry id="container">
-        <masonry-brick class="brick" *ngFor="let brick of bricks">
-          <brick-component class="brick" [quote]="brick"></brick-component>
-        </masonry-brick>
-      </masonry>
-    <!-- </div> -->
   </div>
-
-  <floating-form></floating-form>
 
   <simple-notifications></simple-notifications>
 

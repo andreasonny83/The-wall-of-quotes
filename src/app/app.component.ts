@@ -9,7 +9,11 @@ import '../public/css/styles.css';
 
   <wall></wall>
 
+  <floating-form [class.cookieLaw]="cookieLaw"></floating-form>
+
   <cookie-law></cookie-law>
   `
 })
-export class AppComponent { }
+export class AppComponent {
+  private cookieLaw: boolean = true;
+}

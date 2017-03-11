@@ -1,10 +1,7 @@
 @import '../../public/css/variables.css';
 
 :host {
-  background-color: #232323;
   display: block;
-  overflow: auto;
-  height: 100%;
 }
 
 .is-loading {

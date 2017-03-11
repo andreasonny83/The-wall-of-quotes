@@ -1,9 +1,14 @@
-html, body {
+@import "variables.css";
+
+html {
+  background: var(--background);
+}
+
+body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  min-height: 100vh;
   position: relative;
-  overflow: hidden;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
