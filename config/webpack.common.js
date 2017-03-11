@@ -5,13 +5,9 @@
  *
  * @author: Andrea Sonny <andreasonny83@gmail.com>
  */
-const webpack = require('webpack');
+
 const helpers = require('./helpers');
 
-/*
- * Webpack Plugins
- */
-// problem with copy-webpack-plugin
 const AssetsPlugin = require('assets-webpack-plugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
@@ -36,7 +32,9 @@ const METADATA = {
  * See: http://webpack.github.io/docs/configuration.html#cli
  */
 module.exports = function (options) {
+
   isProd = options.env === 'production';
+
   return {
 
     /*
@@ -75,7 +73,11 @@ module.exports = function (options) {
       extensions: ['.ts', '.js', '.json'],
 
       // An array of directory names to be resolved to the current directory
-      modules: [helpers.root('src'), helpers.root('node_modules')],
+      modules: [
+        helpers.root('node_modules'),
+        helpers.root('src'),
+      ],
+
     },
 
     /*
@@ -84,6 +86,7 @@ module.exports = function (options) {
      * See: http://webpack.github.io/docs/configuration.html#module
      */
     module: {
+
       rules: [
 
         /*
@@ -149,7 +152,7 @@ module.exports = function (options) {
         {
           test: /\.(jpg|png|gif)$/,
           use: 'file-loader'
-        }
+        },
       ]
     },
 
@@ -159,6 +162,7 @@ module.exports = function (options) {
      * See: http://webpack.github.io/docs/configuration.html#plugins
      */
     plugins: [
+
       new AssetsPlugin({
         path: helpers.root('dist'),
         filename: 'webpack-assets.json',

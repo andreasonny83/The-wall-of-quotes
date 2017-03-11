@@ -7,11 +7,7 @@
  */
 
 const helpers = require('./helpers');
-const path = require('path');
 
-/**
- * Webpack Plugins
- */
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
@@ -55,7 +51,10 @@ module.exports = function (options) {
       /**
        * Make sure root is src
        */
-      modules: [ path.resolve(__dirname, 'src'), 'node_modules' ]
+      modules: [
+        helpers.root('node_modules'),
+        helpers.root('src'),
+      ]
     },
 
     /**
@@ -100,6 +99,7 @@ module.exports = function (options) {
             // use inline sourcemaps for "karma-remap-coverage" reporter
             sourceMap: false,
             inlineSourceMap: true,
+            configFileName: helpers.root('src/tsconfig.json'),
             compilerOptions: {
               // Remove TypeScript helpers to be injected
               // below by DefinePlugin
@@ -129,7 +129,7 @@ module.exports = function (options) {
          */
         {
           test: /\.css$/,
-          loader: 'raw-loader!postcss-loader'
+          loader: 'raw-loader'
         },
 
         /**
