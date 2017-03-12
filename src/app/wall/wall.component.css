@@ -2,6 +2,7 @@
 
 :host {
   display: block;
+  margin: 0;
 }
 
 .is-loading {
@@ -10,12 +11,14 @@
 
 .wall {
   max-width: 1600px;
-  margin: 10px auto 50px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 30px 0;
   font-family: 'Bad Script', cursive;
 }
 
 h2 {
-  margin: 30px 0;
+  margin: 0;
   font-size: 62px;
   font-weight: 600;
   color: white;

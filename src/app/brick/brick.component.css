@@ -57,6 +57,9 @@
 
 .footer {
   margin-bottom: 8px;
+  margin-left: 4px;
+  margin-right: 4px;
+  border-radius: 2px;
   padding: 5px 0;
   box-sizing: content-box;
   color: #353535;

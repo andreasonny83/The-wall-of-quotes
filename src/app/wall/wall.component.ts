@@ -47,7 +47,6 @@ export class WallComponent implements OnInit {
     this.quotes.subscribe(
       (val: any) => {
         if (val.length === 1) {
-          console.log('done');
           this.loadMore = false;
         }
 

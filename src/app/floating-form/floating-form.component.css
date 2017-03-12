@@ -1,7 +1,7 @@
 @import '../../public/css/variables.css';
 
-:host.cookieLaw .floating-form {
-  bottom: 60px;
+:host.cookieLawSeen .floating-form {
+  bottom: 0;
 }
 
 .floating-form {
@@ -10,7 +10,7 @@
 
   top: 0;
   left: 0;
-  bottom: 0;
+  bottom: 60px;
   width: 100%;
   font-family: Roboto, helvetica, arial, sans-serif;
 

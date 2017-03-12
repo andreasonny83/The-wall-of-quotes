@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 
 import '../public/css/styles.css';
 
@@ -9,11 +13,18 @@ import '../public/css/styles.css';
 
   <wall></wall>
 
-  <floating-form [class.cookieLaw]="cookieLaw"></floating-form>
+  <floating-form [class.cookieLawSeen]="cookieLawSeen"></floating-form>
 
-  <cookie-law></cookie-law>
+  <cookie-law #cookieLaw (isSeen)="cookieLawSeen = $event"></cookie-law>
   `
 })
-export class AppComponent {
-  private cookieLaw: boolean = true;
+export class AppComponent implements OnInit {
+  @ViewChild('cookieLaw')
+  private cookieLawEl: any;
+
+  private cookieLawSeen: boolean;
+
+  public ngOnInit() {
+    this.cookieLawSeen = this.cookieLawEl.cookieLawSeen;
+  }
 }
