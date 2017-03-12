@@ -5,18 +5,13 @@
  *
  * @author: Andrea Sonny <andreasonny83@gmail.com>
  */
-const webpack = require('webpack');
+
 const helpers = require('./helpers');
 
-/*
- * Webpack Plugins
- */
-// problem with copy-webpack-plugin
 const AssetsPlugin = require('assets-webpack-plugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 const HtmlElementsPlugin = require('./html-elements-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
@@ -37,7 +32,9 @@ const METADATA = {
  * See: http://webpack.github.io/docs/configuration.html#cli
  */
 module.exports = function (options) {
+
   isProd = options.env === 'production';
+
   return {
 
     /*
@@ -76,7 +73,11 @@ module.exports = function (options) {
       extensions: ['.ts', '.js', '.json'],
 
       // An array of directory names to be resolved to the current directory
-      modules: [helpers.root('src'), helpers.root('node_modules')],
+      modules: [
+        helpers.root('node_modules'),
+        helpers.root('src'),
+      ],
+
     },
 
     /*
@@ -85,6 +86,7 @@ module.exports = function (options) {
      * See: http://webpack.github.io/docs/configuration.html#module
      */
     module: {
+
       rules: [
 
         /*
@@ -97,21 +99,17 @@ module.exports = function (options) {
         {
           test: /\.ts$/,
           use: [
-            'awesome-typescript-loader',
-            'angular2-template-loader',
-            'angular-router-loader'
+            {
+              loader: 'awesome-typescript-loader',
+              options: {
+                configFileName: helpers.root('src/tsconfig.json')
+              }
+            },
+            {
+              loader: 'angular2-template-loader'
+            }
           ],
           exclude: [/\.(spec|e2e)\.ts$/]
-        },
-
-        /*
-         * Json loader support for *.json files.
-         *
-         * See: https://github.com/webpack/json-loader
-         */
-        {
-          test: /\.json$/,
-          use: 'json-loader'
         },
 
         /*
@@ -126,7 +124,6 @@ module.exports = function (options) {
           use: [
             'style-loader',
             'css-loader',
-            'postcss-loader'
           ]
         },
 
@@ -136,7 +133,6 @@ module.exports = function (options) {
           exclude: [/node_modules/],
           use: [
             'raw-loader',
-            'postcss-loader'
           ]
         },
 
@@ -156,7 +152,7 @@ module.exports = function (options) {
         {
           test: /\.(jpg|png|gif)$/,
           use: 'file-loader'
-        }
+        },
       ]
     },
 
@@ -166,19 +162,13 @@ module.exports = function (options) {
      * See: http://webpack.github.io/docs/configuration.html#plugins
      */
     plugins: [
+
       new AssetsPlugin({
         path: helpers.root('dist'),
         filename: 'webpack-assets.json',
         prettyPrint: true
       }),
 
-      /*
-       * Plugin: ForkCheckerPlugin
-       * Description: Do type checking in a separate process, so webpack don't need to wait.
-       *
-       * See: https://github.com/s-panferov/awesome-typescript-loader#forkchecker-boolean-defaultfalse
-       */
-      new ForkCheckerPlugin(),
       /*
        * Plugin: CommonsChunkPlugin
        * Description: Shares common code between the pages.

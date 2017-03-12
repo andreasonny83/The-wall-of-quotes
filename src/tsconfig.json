@@ -5,22 +5,23 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "baseUrl": "./src",
-    "lib": ["dom", "es6"],
+    "lib": [
+      "dom",
+      "es6"
+    ],
+    "typeRoots": [
+      "../node_modules/@types"
+    ],
     "types": [
       "jasmine",
       "node",
-      "selenium-webdriver",
       "source-map",
       "uglify-js",
       "webpack"
     ]
   },
-  "exclude": [
-    "node_modules",
-    "dist"
-  ],
   "awesomeTypescriptLoaderOptions": {
     "forkChecker": true,
     "useWebpackText": true

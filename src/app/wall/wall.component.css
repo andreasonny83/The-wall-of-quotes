@@ -1,21 +1,24 @@
 @import '../../public/css/variables.css';
 
 :host {
-  background-image: url(/assets/images/TheWall.jpg);
-  background-color: #1d1d1d;
   display: block;
-  overflow: auto;
-  height: 100%;
+  margin: 0;
+}
+
+.is-loading {
+  display: none;
 }
 
 .wall {
   max-width: 1600px;
-  margin: 10px auto 50px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 30px 0;
   font-family: 'Bad Script', cursive;
 }
 
 h2 {
-  margin: 30px 0;
+  margin: 0;
   font-size: 62px;
   font-weight: 600;
   color: white;

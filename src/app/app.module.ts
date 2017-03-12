@@ -33,12 +33,12 @@ export const firebaseConfig = {
     BrowserModule,
     HttpModule,
     FormsModule,
-    SimpleNotificationsModule,
+    SimpleNotificationsModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
     ReCaptchaModule,
     MasonryModule,
     ShareModule,
-    CookieLawModule
+    CookieLawModule,
   ],
   declarations: [
     AppComponent,
@@ -46,11 +46,13 @@ export const firebaseConfig = {
     WallComponent,
     QuoteComponent,
     BrickComponent,
-    FloatingFormComponent
+    FloatingFormComponent,
   ],
   providers: [
-    ConstantService
+    ConstantService,
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [
+    AppComponent,
+  ]
 })
 export class AppModule { }

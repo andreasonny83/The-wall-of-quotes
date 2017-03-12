@@ -1,6 +1,7 @@
 <div class="floating-form"
      [ngClass]="formClass"
      [class.wait]="wait"
+     [class.is-loading]="isLoading"
      (click)="closeForm($event)">
 
   <form (ngSubmit)="addQuote()"

@@ -1,9 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+} from '@angular/core';
 
 export interface Quote {
-  quote: string,
-  author: string,
-  creator: string
+  quote: string;
+  author: string;
+  creator: string;
 }
 
 @Component({
@@ -12,7 +15,5 @@ export interface Quote {
  templateUrl: './brick.component.html'
 })
 export class BrickComponent {
-  @Input() quote: Quote;
-
-  constructor() { }
+  @Input() public quote: Quote;
 }

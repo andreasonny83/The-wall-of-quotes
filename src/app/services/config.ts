@@ -1,7 +1,7 @@
-const apiKey = "AIzaSyBRBI7YL63c3n4x1zRvButCn8mBg2cNEMM";
-const authDomain = "the-wall-of-quotes.firebaseapp.com";
-const databaseURL = "https://the-wall-of-quotes.firebaseio.com";
-const storageBucket = "the-wall-of-quotes.appspot.com";
+const apiKey = 'AIzaSyBRBI7YL63c3n4x1zRvButCn8mBg2cNEMM';
+const authDomain = 'the-wall-of-quotes.firebaseapp.com';
+const databaseURL = 'https://the-wall-of-quotes.firebaseio.com';
+const storageBucket = 'the-wall-of-quotes.appspot.com';
 const apiUrl = 'https://the-wall-of-quotes-api.herokuapp.com';
 // const apiUrl = 'http://localhost:3012'; // For Dev only
 
