@@ -1,7 +1,7 @@
 /**
  * the-wall-of-quotes
  *
- * Copyright 2016, Andrea Sonny, All rights reserved.
+ * Copyright 2016-2017, Andrea Sonny, All rights reserved.
  *
  * @author: Andrea Sonny <andreasonny83@gmail.com>
  */
@@ -124,6 +124,7 @@ module.exports = function (options) {
           use: [
             'style-loader',
             'css-loader',
+            'postcss-loader',
           ]
         },
 
@@ -133,6 +134,7 @@ module.exports = function (options) {
           exclude: [/node_modules/],
           use: [
             'raw-loader',
+            'postcss-loader',
           ]
         },
 
