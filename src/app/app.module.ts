@@ -19,6 +19,7 @@ import { WallComponent }             from './wall/wall.component';
 import { QuoteComponent }            from './quote/quote.component';
 import { BrickComponent }            from './brick/brick.component';
 import { FloatingFormComponent }     from './floating-form/floating-form.component';
+import { SortCardsPipe }             from './services/pipes';
 
 // Must export the config
 export const firebaseConfig = {
@@ -47,6 +48,7 @@ export const firebaseConfig = {
     QuoteComponent,
     BrickComponent,
     FloatingFormComponent,
+    SortCardsPipe,
   ],
   providers: [
     ConstantService,

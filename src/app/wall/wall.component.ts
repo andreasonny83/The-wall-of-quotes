@@ -16,16 +16,17 @@ import {
 @Component({
   selector: 'wall',
   styleUrls: ['./wall.component.css'],
-  templateUrl: './wall.component.html'
+  templateUrl: './wall.component.html',
 })
 export class WallComponent implements OnInit {
   public highlight: string;
   public theWall: string;
-  public loadMore: boolean;
   public quotes: FirebaseListObservable<any[]>;
   public bricks: any[] = [];
 
+  public loadMore: boolean;
   private lastRecord: number;
+  private loadedRecords: number = 0;
   private subject: Subject<Number>;
 
   constructor(private af: AngularFire) {
@@ -36,9 +37,8 @@ export class WallComponent implements OnInit {
 
     this.quotes = this.af.database.list('/quotes', {
         query: {
-        orderByChild: 'time',
-        startAt: this.subject,
-        limitToFirst: 5,
+          orderByChild: 'time',
+          // limitToFirst: this.subject,
       }
     });
   }
@@ -46,32 +46,20 @@ export class WallComponent implements OnInit {
   public ngOnInit(): void {
     this.quotes.subscribe(
       (val: any) => {
-        if (val.length === 1) {
-          this.loadMore = false;
-        }
-
-        val.forEach((item: any) => {
-          if (item.time === this.lastRecord) {
-            return;
-          }
-
-          this.lastRecord = item.time;
-          this.bricks.push(item);
-        });
+        this.loadMore = false;
       },
-
       (err: any) => console.log('Error.', err),
     );
 
-    this.loadMoreData();
+    // this.loadMoreData();
   }
 
-  public loadMoreData() {
-    setTimeout(() => {
-      this.subject.next(this.lastRecord);
-      if (this.loadMore) {
-        this.loadMoreData();
-      }
-    }, 3000);
-  }
+  // public loadMoreData() {
+  //   this.loadedRecords += 5;
+  //
+  //   setTimeout(() => {
+  //     this.subject.next(this.loadedRecords);
+  //     // this.loadMoreData();
+  //   }, 1500);
+  // }
 }

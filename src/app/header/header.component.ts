@@ -15,10 +15,13 @@ import {
 export class SnHeaderComponent {
   @Input() public isLoggedIn: boolean = false;
 
+  public title: string;
+  public version: string;
+
   private env: string = null;
-  private title: string;
 
   constructor() {
     this.title = 'The Wall Of Quotes';
+    this.version = `v.${ConstantService.VERSION}`;
   }
 }

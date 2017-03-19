@@ -30,3 +30,23 @@
   background: rgba(47,79,79,0.9);
   padding: 3px;
 }
+
+.header__first .version,
+.header__first .bug {
+  position: absolute;
+  right: 10px;
+  font-size: 12px;
+  color: white;
+}
+
+.header__first .version {
+  bottom: 10px;
+}
+
+.header__first .bug {
+  top: 10px;
+}
+
+.header__first .bug:hover {
+  text-decoration: underline;
+}

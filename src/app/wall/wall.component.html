@@ -3,8 +3,11 @@
   <div class="oldies">
     <h2>{{ theWall }}</h2>
 
-    <masonry id="container">
-      <masonry-brick class="brick" *ngFor="let brick of bricks">
+    <!--
+    loadMore with angular2-masonry has been disabled until tis bug is fixed: https://github.com/jelgblad/angular2-masonry/issues/31
+    -->
+    <masonry id="container" [options]="{}">
+      <masonry-brick class="brick" *ngFor="let brick of quotes | async | orderBy: 'time'">
         <brick-component [quote]="brick"></brick-component>
       </masonry-brick>
     </masonry>
