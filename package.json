@@ -55,7 +55,7 @@
     "webdriver-manager": "webdriver-manager",
     "webdriver:start": "npm run webdriver-manager start",
     "webdriver:update": "npm run webdriver-manager update",
-    "precommit": "npm test:headless",
+    "precommit": "npm run test:headless",
     "commit": "git-cz",
     "semantic-release": "semantic-release pre && semantic-release post"
   },
