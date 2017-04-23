@@ -32,6 +32,7 @@
     "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./src/",
     "e2e:live": "npm run e2e -- --elementExplorer",
     "e2e": "npm run protractor",
+    "firebase": "firebase",
     "lint": "tslint \"src/**/*.ts\"",
     "prebuild:dev": "npm run clean:dist",
     "prebuild:prod": "npm run clean:dist",

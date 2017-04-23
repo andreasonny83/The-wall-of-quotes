@@ -1,29 +1,21 @@
 language: node_js
-
 notifications:
   email: false
-
 node_js:
-  - '7'
-  - '6'
-
+- '7'
+- '6'
 before_script:
-  - npm prune
-
+- npm prune
 script:
-  - npm run test:headless
-
+- npm run test:headless
 after_success:
-  - npm run build
-
-deploy:
-  skip_cleanup: true
-  provider: firebase
-  token:
-    secure: c1nPNn1F4Ni0/0kLN2KeyaQC+Abo7QnXxrBYhb3ti57F2KQep5N0u+Sg/5i9VL6Ks7u4KoNVSmiJJ/DyeFZ9LgGceFRG109pHfMUVfpptZMjKmIGqNDbxets0CFniHsnETTX8szb1JL7/AmQxaXEurF0eHmZdYmYQQYES92dYVBhMA6MAJwjw3Xe3V5yLhPoBTBqgl8aHndndUwCLMZTnz2wxnSdwOf3XDCT+7RydpGocWK8xYfDQewcmBti8vYZJDelKi00Zo7MTT6Tv3b4H89g9g8wWoBz6NyPimyo/IIjs+V8UkCvEUgvofFgaG0+06xpljSqGzDVjx2C9eSFvIs/N/Mo7ZVF7CS/IOfJCUTlFYBalOj5yJKRO1NzFmtdqwvUTikOY47pvTw0TcF1AvUNDmtljKUFjWlJ8P8vYV9zG2qunqAy+WUXg6v9Hij37KTbR8QctARP0fPWt1QDZirESuKRGafFAhdhEFQkecCAlJ4S1ZcpCBqpc2u1et1cusZxmEuZU3oQaWKqL73tPLOGDrc4SGu11mLapM1eIaAC0pFC5sInG4+/1x4tK99+HX5mdFvX62T5Yk26qO44A/mtt8u0zaJs7CARVvnfI46uzI22rslhuSQ752E0MM6D3FqLveMGfOMggSp6CtmcQD5b6b0nqHoaf/M5ChNt4L4=
-
+- npm run build
+- npm run firebase -- deploy --token=${FIREBASE_API_TOKEN}
 branches:
   except:
-    - /^v\d+\.\d+\.\d+$/
+  - /^v\d+\.\d+\.\d+$/
   only:
-    - master
+  - master
+env:
+  global:
+    secure: C6ll+70b7jYN0j9uR4NzsCAmFjj88MmEm5vl9WBJU5xXhKxXMimwTF1pKyDKjLvmWobEjSeVHcDTQBlx/DUhdmQOPrzRQpoF+KaDfFuTMq86Z2h++EaFoqtc+uM80g0iDiwAgFqO0R4LJ1tRgWnxoyrewPrA+XnnAUzH9TiOiB6pY+pxyIvP3TbQJCO8ugpOtw9VpfO3RsU9ZKG/R1RBZ/LXA+hovQIqtDjYfgthesoYi7L7eAaBQVRWfxL8b1KnNpTaSIj27syR+YVld71pg6e2i0rZFRGyMTcl65B75obGeeL8cZMFlbAirUwCUO3HlcJlXedsrlIBkTAWTmkkeMWSsUMlXisLQlGy4R6+plqANgKLlMjX/63syAKmAftdURp8EponNmO18Z2JH/3vYpwGZhnm3nP4tZteEZfy72ROKgi3nQT3B2RFaBzNVKUEcB5TWy5URRN0qJRs2nfxjcnChYSA1iz3OEP7HkBvKjWyCxZbtnaGhO1rkDRiKVXX8d0KKlLd9Pmux2XNKFusfW6IKK9U+T2SEIib7+84R+9cs8UjqRwC3+N4d/kiymOQLGf2lwLc1+6NTXalAr/48LroqiwsfHxosn6xkCfYPvb/q8KqX4JRvy2Cm+0IC6fx6BMBaanCl7WY8O+Z9hM0r5iPON9Omqy6YkgwyNXC8wk=
