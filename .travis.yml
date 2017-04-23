@@ -1,21 +1,24 @@
 language: node_js
+
 notifications:
   email: false
+
 node_js:
-- '7'
 - '6'
+
 before_script:
 - npm prune
+- npm install -g firebase-tools
+
 script:
 - npm run test:headless
+
 after_success:
 - npm run build
-- npm run firebase -- deploy --token=${FIREBASE_API_TOKEN}
+- firebase deploy --token=${FIREBASE_API_TOKEN}
+
 branches:
   except:
   - /^v\d+\.\d+\.\d+$/
   only:
   - master
-env:
-  global:
-    secure: C6ll+70b7jYN0j9uR4NzsCAmFjj88MmEm5vl9WBJU5xXhKxXMimwTF1pKyDKjLvmWobEjSeVHcDTQBlx/DUhdmQOPrzRQpoF+KaDfFuTMq86Z2h++EaFoqtc+uM80g0iDiwAgFqO0R4LJ1tRgWnxoyrewPrA+XnnAUzH9TiOiB6pY+pxyIvP3TbQJCO8ugpOtw9VpfO3RsU9ZKG/R1RBZ/LXA+hovQIqtDjYfgthesoYi7L7eAaBQVRWfxL8b1KnNpTaSIj27syR+YVld71pg6e2i0rZFRGyMTcl65B75obGeeL8cZMFlbAirUwCUO3HlcJlXedsrlIBkTAWTmkkeMWSsUMlXisLQlGy4R6+plqANgKLlMjX/63syAKmAftdURp8EponNmO18Z2JH/3vYpwGZhnm3nP4tZteEZfy72ROKgi3nQT3B2RFaBzNVKUEcB5TWy5URRN0qJRs2nfxjcnChYSA1iz3OEP7HkBvKjWyCxZbtnaGhO1rkDRiKVXX8d0KKlLd9Pmux2XNKFusfW6IKK9U+T2SEIib7+84R+9cs8UjqRwC3+N4d/kiymOQLGf2lwLc1+6NTXalAr/48LroqiwsfHxosn6xkCfYPvb/q8KqX4JRvy2Cm+0IC6fx6BMBaanCl7WY8O+Z9hM0r5iPON9Omqy6YkgwyNXC8wk=
