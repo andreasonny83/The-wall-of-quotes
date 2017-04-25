@@ -17,7 +17,7 @@
 
  // RxJS
  import 'rxjs';
- import 'angular2-notifications/components';
+ import 'angular2-notifications';
  import 'angularfire2';
  import 'angular2-recaptcha';
  import 'angular2-masonry';

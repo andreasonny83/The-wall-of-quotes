@@ -1,12 +1,13 @@
 import { NgModule }                  from '@angular/core';
 import { BrowserModule }             from '@angular/platform-browser';
+import { BrowserAnimationsModule }   from '@angular/platform-browser/animations';
 import { RouterModule }              from '@angular/router';
 import { FormsModule }               from '@angular/forms';
 import { HttpModule }                from '@angular/http';
 
 import { AngularFireModule }         from 'angularfire2';
 import { ReCaptchaModule }           from 'angular2-recaptcha';
-import { SimpleNotificationsModule } from 'angular2-notifications/components';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 import { MasonryModule }             from 'angular2-masonry';
 import { CookieLawModule }           from 'angular2-cookie-law';
 import { ShareModule }               from './share-module';
@@ -21,17 +22,18 @@ import { BrickComponent }            from './brick/brick.component';
 import { FloatingFormComponent }     from './floating-form/floating-form.component';
 import { SortCardsPipe }             from './services/pipes';
 
-// Must export the config
+// Firebase
 export const firebaseConfig = {
   apiKey: ConstantService.API_KEY,
   authDomain: ConstantService.AUTH_DOMAIN,
   databaseURL: ConstantService.DB,
-  storageBucket: ConstantService.BUCKET
+  storageBucket: ConstantService.BUCKET,
 };
 
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpModule,
     FormsModule,
     SimpleNotificationsModule.forRoot(),

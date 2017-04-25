@@ -47,7 +47,7 @@ export class FloatingFormComponent implements OnInit {
 
   constructor(
     private http: Http,
-    private _service: NotificationsService
+    private _service: NotificationsService,
   ) { }
 
   public ngOnInit(): void {
